@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/stylesheets/product.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/project.js"></script>
+    </head>
+    
+
+    <body>
+        <form action="/product/submitproduct" method="post" enctype="multipart/form-data">
+        <div class="mainContainer align">
+            <div class="box ">
+                <div class="headingbox ">
+                    <div class="headingtext">Product Interface</div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">account_circle</i>
+                        <select required name="categoryid" id="categoryid">
+                            <option value="" disabled selected>Choose your option</option>
+                          </select>
+                          <label>Categories</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">account_circle</i>
+                        <select required name="subcategoryid" id="subcategoryid" name="subcategoryid">
+                            <option value="" disabled selected>Choose your option</option>
+                          </select>
+                          <label>Sub Categories</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">assistant</i>
+                        <select required name="brandid" id="brandid" name="brandid">
+                            <option value="" disabled selected>Choose your option</option>
+                          </select>
+                          <label>Brands</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">local_mall</i>
+                        <input required id="productname" name="productname" type="text" class="validate">
+                        <label for="productname">Product Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <input required id="description" name="description" type="text" class="validate">
+                        <label for="description">Description</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">attach_money</i>
+                        <input required id="price" name="price" type="text" class="validate">
+                        <label for="price">Price</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">local_offer</i>
+                        <input required id="offerprice" name="offerprice" type="text" class="validate">
+                        <label for="offerprice">Offer Price</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">import_contacts</i>
+                        <input required id="stock" name="stock" type="text" class="validate">
+                        <label for="stock">Stock</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">grade</i>
+                        <input id="ratings" name="ratings" type="text" class="validate">
+                        <label for="ratings">Ratings</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select required name="status">
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="continue">Continue</option>
+                          <option value="discontinue">Discontinue</option>
+                        </select>
+                        <label>Status</label>
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="col s12"> 
+                      <div class="file-field input-field">
+                        <div class="btn">
+                          <span>File</span>
+                          <input required type="file" name="picture">
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text">
+                        </div>
+                      </div>
+                    </div>
+                  <div class="col s6 align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                      </button>
+                  </div>
+
+                  <div class="col s6 align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Reset
+                        <i class="material-icons right">refresh</i>
+                      </button>
+                  </div>
+                </div>
+            <div class="row">
+                <div class="col s12 align">
+                    <h5><%=message %></h5>
+
+                </div>
+            </div>
+            </div>
+        </div>
+      </form>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('select').formSelect();
+  });
+    </script>
+</html>

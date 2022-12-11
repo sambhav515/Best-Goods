@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                 
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="/stylesheets/loginform.css"/> 
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </head> 
+
+
+
+     <div class="menuBox">
+
+         <div class="row">
+                <div class="input-field col s12">
+                <div style="padding: 2px;  font-size: 30px; font-weight: bolder; letter-spacing: 2px; display: flex; justify-content: center; align-items: center;">
+                   <img src="/images/logo.jpg"  width="170"/>
+                </div>
+               <div style="display:flex;justify-content:center;">
+             
+                <img src="/images/<%=admin.picture%>" style="width:60px; height:60px; border-radius:30px; padding: 5px;">
+             
+               </div> 
+               <div style="display:flex;justify-content:center;">
+             
+                <%=admin.adminname %>
+             
+               </div> 
+           
+                </div>
+         </div>
+
+
+         <div class="row">
+            <div class="input-field col s12">
+             <div style="padding: 2px;  font-size:15px; font-weight: bolder; letter-spacing: 2px; display: flex;">
+              <a  class="waves-effect waves-light btn-small" style=" width: 300px;background: #1abc9c;" href="/product/product" target="mw"> <i class="small material-icons" style="letter-spacing: 10px;">low_priority</i> Add Products </a>
+             </div>
+            </div>
+         </div>
+
+
+         <div class="row">
+            <div class="input-field col s12">
+             <div style="padding: 2px;  font-size:15px; font-weight: bolder; letter-spacing: 2px; display: flex;">
+                <a  class="waves-effect waves-light btn-small" style=" width: 300px;background: #1abc9c;" href="/product/display_all_products" target="mw"><i class="small material-icons" style="letter-spacing: 10px;">receipt</i>   Display Products</a>
+             </div>
+            </div>
+         </div>
+
+
+
+         <div class="row">
+            <div class="input-field col s12">
+             <div style="padding: 2px;  font-size:15px; font-weight: bolder; letter-spacing: 2px; display: flex; align-items: center; justify-content: center;">
+               <a  class="waves-effect waves-light btn-small" style="background: #1abc9c; width: 300px;" href="/admin/adminlogout"><i class="small material-icons" style="letter-spacing: 10px;">subtitles</i>Logout</a>
+             </div>
+            </div>
+         </div>
+
+
+        
+
+
+
+
+
+         
+     </div>
+<!--
+<div class="twoBox">
+      
+
+      <div class="row">
+         <div class="col s12">
+            <nav >
+                <div class="nav-wrapper">
+                  <a href="#" style="padding-left:10px; font-size:20px;">Peter Kumar</a>
+                <span class="right">
+                  <img src="/images/admin.png" style="width:60px; height:60px; border-radius:30px; padding: 5px;">
+                </span>  
+                </div>
+                 
+              </nav>
+        
+        
+           </div>
+         </div>
+    
+    
+
+
+</div>
+-->
+<!---boxxes---->
+<div class="mainCall">
+        <div class="row">
+       
+          <div class="col s3" >
+           <div class="sbox centerAlign">
+            <div style="display:flex; flex-direction:column ; align-items: center;">
+                <span>
+                <i class="small material-icons" style="background-color:red ; color: white;">person</i>
+                </span>
+                <span style="padding-left:15px;font-size:16px;font-weight:bold;"> <%=result[0][0].countcategory %> Category</span> 
+            </div>
+           </div>
+        </div>
+
+        <div class="col s3">
+            <div class="sbox centerAlign">
+                <div style="display:flex; flex-direction:column ; align-items: center;">
+                    <span>
+                    <i class="small material-icons" style="background-color:red ; color: white;">shopping_basket</i>
+                    </span>
+                    <span style="padding-left:15px;font-size:16px;font-weight:bold;"> <%=result[1][0].countproducts %> Products</span> 
+                </div>
+           
+            </div>
+        </div>
+ 
+
+
+        
+            <div class="col s3">
+                <div class="sbox centerAlign">
+                    <div style="display:flex; flex-direction:column ; align-items: center;">
+                        <span>
+                        <i class="small material-icons" style="background-color:red ; color: white;">shopping_cart</i>
+                        </span>
+                        <span style="padding-left:15px;font-size:16px;font-weight:bold;"> <%=result[2][0].countbrands %> Brands</span> 
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col s3">
+                <div class="sbox centerAlign">
+                    <div style="display:flex; flex-direction:column ; align-items: center;">
+                        <span>
+                        <i class="small material-icons" style="background-color:red ; color: white;">shopping_basket</i>
+                        </span>
+                        <span style="padding-left:15px;font-size:16px;font-weight:bold;"> <%=result[1][0].countstock %> Stock</span> 
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <div>
+            <iframe src="/product/display_all_products" frameborder="0" style="width:82vw; height:80vh" name="mw"></iframe>
+            </div> 
+        </div>
+     
+    </div>
+        <!----End-boxxes---->
+
+       
+       
+
+</html>

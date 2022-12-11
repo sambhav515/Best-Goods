@@ -1,0 +1,414 @@
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <!-- Compiled and minified CSS -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+       <link rel="stylesheet" href="/stylesheets/product.css"/>
+       <!-- Compiled and minified JavaScript -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" ></script>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script src="/javascripts/project.js"></script> 
+       </head>
+    <body>
+    
+    
+
+    <% if(status==false) {%>    
+       <h2><%=data %></h2> 
+    <% } else { %>   
+     <div class="tableContainer">
+     <div class="tableBox">
+     <table class="striped">
+      <div class="headingBox">
+         <div class="headingText">
+         List of Products
+         </div>
+      </div>
+      <thead>
+      <tr>
+        <th>Product Id</th>
+        <th>Category</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>Status</th>
+        <th>Picture</th>
+        <th>Update</th>
+     </tr>
+     </thead>
+     <tbody>
+    <% data.map((item)=>{%> 
+        
+        <tr>
+         <td><%=item.productid %></td>
+         <td>
+            <%=item.categoryname %><br>
+            <%=item.subcategoryname %>
+        </td>
+         <td>
+            <%=item.productname %><br>
+            <%=item.brandname%>
+        </td>
+        <td><%=item.description %></td>
+        <td>
+           <%if(item.offerprice>0) {%>
+            <div style="color:crimson"><s><%=item.price %><br></s></div>
+            <div style="color: aquamarine;font-weight: bolder;"><%=item.offerprice %><br></div>
+            <%} else{ %>
+               <div style="color:aquamarine;font-weight: bolder;"><%=item.price %></div><br>
+            <%} %>
+            Stock:<%=item.stock %>
+        </td>
+        <td><%=item.ratings %></td>
+        <td><%=item.status %></td>
+        <td><button type="button" class="btnpicture" products="<%=JSON.stringify(item) %>">
+          <img src='/images/<%=item.picture %>' style="border-radius:20px; width:60px" >
+          </button> 
+        </td>
+        <td>
+          <button class="btnedit btn waves-effect waves-light" type="button" products="<%=JSON.stringify(item) %>"  >Edit
+            <i class="material-icons right">send</i>
+          </button>
+
+          
+ 
+        </tr>
+        
+        
+        <%})%>     
+     
+
+      </tbody>  
+     </table>
+   <!-- Dialog Product -->
+   
+ 
+
+  <!-- Modal Structure -->
+  <div id="product" class="modal" style="width:70%;overflow-y: hidden;max-height:fit-content;" >
+    <div class="modal-content" style="width:100%;">
+        <div  class="dContainer">
+            <div class="dBox" >
+                <div class="headingBox">
+                    <div class="headingText">Update/Delete Product</div>
+                </div>
+           
+
+                <input type="hidden"   id="productid">
+                  
+                <div class="row">
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">next_week</i>
+                        <select required name="categoryid" id="categoryid">
+                          <option value="" disabled selected>Choose your option</option>
+                          
+                        </select>
+                        <label>Categories</label>
+              
+                      </div>
+                      <div class="input-field col s4">
+                        <i class="material-icons prefix">grid_on</i>
+                        <select required name="subcategoryid" id="subcategoryid">
+                          <option value="" disabled selected>Choose your option</option>
+                          
+                        </select>
+                        <label>SubCategories</label>
+   
+   
+                      </div>
+
+                      <div class="input-field col s4">
+                        <i class="material-icons prefix">new_releases</i>
+                        <select required name="brandid" id="brandid">
+                          <option value="" disabled selected>Choose your option</option>
+                          
+                        </select>
+                        <label>Brands</label>
+     
+                      
+                      
+                      </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">shopping_cart</i>
+                        <input required id="productname" name="productname" type="text" class="validate">
+                        <label for="productname">Product Name</label>
+                    </div>
+                
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <input required id="description" name="description" type="text" class="validate">
+                        <label for="description">Description</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">attach_money</i>
+                        <input required id="price" name="price" type="text" class="validate">
+                        <label for="price">Price</label>
+                      </div>
+                      <div class="input-field col s4">
+                        <i class="material-icons prefix">money_off</i>
+                        <input required id="offerprice" name="offerprice" type="text" class="validate">
+                        <label for="offerprice">Offer Price</label>
+                      </div>
+
+                      <div class="input-field col s4">
+                        <i class="material-icons prefix">add_shopping_cart</i>
+                        <input required id="stock" name="stock" type="text" class="validate">
+                        <label for="stock">Stock</label>
+                      </div>
+                </div>
+        
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">star</i>
+                        <input id="ratings" name="ratings" type="text" class="validate">
+                        <label for="ratings">Ratings</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">edit_location</i>
+                        <select required id="status" name="status">
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="Continue">Continue</option>
+                          <option value="Discontinue">Discontinue</option>
+                          
+                        </select>
+                        <label>Status</label>
+                      </div>
+                    </div>
+                
+              <div class="row">
+                <div class="col s6 alignCenter" >
+                    <button class="btn waves-effect waves-light"  id="updbtn">Edit
+                        <i class="material-icons right">edit</i>
+                      </button>
+                </div>
+
+                <div class="col s6 alignCenter" >
+                    <button class="btn waves-effect waves-light"  id="delbtn">Delete
+                        <i class="material-icons right">remove</i>
+                      </button>
+                </div>
+
+
+              </div> 
+
+             
+
+            </div>
+         </div>
+    
+
+
+    </div>
+     </div>
+<!--End Dialog-->
+
+<!-- Picture Dialog -->
+<div id="picturedialog" class="modal">
+  <div class="modal-content">
+    <div id="title" style="font-size:24px; font-weight:bold; "></div>
+    <div><img id="ppicture"></div>
+    <div>
+      <strong>Select new product picture you want to upload</strong>
+    </div>
+  
+    <div class="row">
+      <div class="col s6">
+          <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input required type="file" id="picture">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col s6">
+            <button class="btn waves-effect waves-light" type="button" id="uploadpicture">Upload
+              <i class="material-icons right">send</i>
+            </button>
+           </div> 
+         </div>
+     
+      </div>
+
+  </div> 
+
+
+
+
+    </div>
+
+  </div>
+  
+       
+
+
+<!-- End Picture Dialog-->
+
+
+
+
+
+
+
+
+
+     </div>
+     </div>
+   <%} %>  
+   
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" ></script>
+       <script>
+          $(document).ready(function(){
+            $('.modal').modal();
+            
+         
+          $('.btnedit').click(function(){
+          
+
+            $('#product').modal('open')
+            var item=JSON.parse($(this).attr('products'))
+            
+            $('#categoryid').val(item.categoryid)
+          
+            //fill subcategory
+             fillSubcategory(item.categoryid,item.subcategoryid)
+              /////End Subcategory/////
+
+  ///fill brand ////
+        fillBrand(item.categoryid,item.brandid)
+  ///End brand////
+ //fill other entries//
+ $('#productid').val(item.productid) 
+$('#productname').val(item.productname)
+$('#description').val(item.description)
+$('#price').val(item.price)
+$('#offerprice').val(item.offerprice)
+$('#stock').val(item.stock)
+$('#ratings').val(item.ratings)
+$('#status').val(item.status)
+M.updateTextFields()
+
+
+   
+
+
+            $("#categoryid").formSelect();
+            $('#status').formSelect()
+   
+          })
+     $('#updbtn').click(function(){
+       $.getJSON('/product/editproductdata',{categoryid:$('#categoryid').val(),
+       subcategoryid:$('#subcategoryid').val(),brandid:$('#brandid').val(),
+       productname:$('#productname').val(),description:$('#description').val(),
+       price:$('#price').val(),offerprice:$('#offerprice').val(),stock:$('#stock').val(),
+       ratings:$('#ratings').val(),status:$('#status').val(),productid:$('#productid').val()
+      },function(data){
+        alert(data.message)
+        window.location.reload('/product/display_all_products')
+
+       })   
+            
+      });
+
+      $('#delbtn').click(function(){
+       $.getJSON('/product/deleteproductdata',{productid:$('#productid').val()
+      },function(data){
+        alert(data.message)
+        window.location.reload('/product/display_all_products')
+
+       })   
+            
+      });
+
+    $('.btnpicture').click(function(){
+
+      $('#picturedialog').modal('open')
+      var item=JSON.parse($(this).attr('products'))
+      $('#productid').val(item.productid)
+  
+      $('#title').html(`Edit Product ${item.productname}`)
+      $('#ppicture').attr('src',`/images/${item.picture}`)
+          
+    })
+
+
+      $('#uploadpicture').click(function(){
+      
+
+        var formData = new FormData();
+        formData.append("productid",$('#productid').val())
+        var files = $('#picture')[0].files;
+        // Check file selected or not
+        if(files.length > 0 ){
+           formData.append('picture',files[0]);
+        /////////////////ajax/////////////////
+
+        $.ajax({
+              url: 'http://localhost:3000/product/updateproductpicture',
+              type: 'POST',
+            
+              data: formData,
+              processData:false,
+              contentType:false,  
+              
+              success: function(response){
+                alert(response.status)
+                window.location.reload('/product/display_all_products')
+              
+              }
+           });
+
+        }else{
+           alert("Please select a file.");
+        }
+
+
+
+        //////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+      })
+     
+      $('#test').click(function(){
+        var db=['Mon','Thr']
+        //alert('hello')
+        $('.day').map(function(){
+          //alert($(this).val())
+           if(db.includes($(this).val()))
+           {
+            $(this).attr('checked',true)
+           }
+        }) 
+       
+
+
+      })
+
+    });
+       </script>
+
+
+
+
+ </html>   

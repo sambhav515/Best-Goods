@@ -1,0 +1,155 @@
+/*product interface*/
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dodgerblue;
+    height: 100vh;
+}
+
+.box {
+    width: 60%;
+    height: auto;
+    padding: 20px;
+    background: #fff;
+}
+
+.headingbox {
+    width: 100%;
+    height: 8%;
+    padding: 10px;
+    background-color:#12CBC4;
+}
+
+.headingtext {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1;
+    padding: 2px;
+    padding-bottom: 5px;
+    color: #fff;
+}
+
+/*End Product interface*/
+
+/*display all products*/
+.tablecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 100vh;
+}
+
+.tablebox {
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    background: #fff;
+}
+
+/*End display all products*/
+
+/*LOgin page */
+.loginContainer {
+    background-color: orange;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginbox {
+    width: 30%;
+    max-height: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+    background: #fff;
+    border: 6px solid black;
+
+}
+
+.logintext {
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: 1;
+    padding: 2px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.btn {
+    cursor: pointer;
+    width: 100%;
+    background-color: orange;
+}
+.btn:hover {
+    background-color: darkred;
+}
+
+/*End Login page */
+
+/*dash board page*/
+.dbContainer {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/******Side Bar******/
+.sideBox {
+    width: 18%;
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    justify-content: left;
+}
+
+.dbHeadingtext {
+    font-size: 18px;
+    font-weight: bolder;
+    letter-spacing: 0;
+    padding: 2px;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.dbHeadingbox {
+    width: 100%;
+    height: 8%;
+    padding: 10px;
+    background-color:white;
+}
+
+a:hover {
+    color: darkred;
+}
+
+.upload {
+    padding-top: 300px;
+}
+/******End Side Bar******/
+
+/******Nav Bar******/
+.nav-bar {
+    width: 90%;
+    height: 14px;
+    padding: 22px;
+    background: white;
+    justify-items:center;
+}
+
+
+/******Nav Bar******/
+
+
+/*dash board page*/
+
+.aligncenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

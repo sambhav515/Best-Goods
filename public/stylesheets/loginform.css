@@ -1,0 +1,128 @@
+.mainContainer{
+    background-color:#ecf0f1;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    .box{
+    background-color: white;
+    width: 30%;
+    height: auto;
+    padding: 10px;
+    }
+    .heading{
+    background-color:aqua;
+    width: auto;
+    height: 10%;
+    }
+    .centerAlign{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    
+    .headingText{
+         color:black;
+        padding: 2px;
+        font-size: 20px;
+        font-weight: bolder ;
+        letter-spacing: 2px;
+        }
+    
+    
+    /* dashboard     */
+    .mainCall{
+    height: 100vh;
+    width: 82vw;
+    background-color: silver;
+    float: left;
+    padding: 10px; 
+    display: flex;
+    justify-content:space-evenly;
+    }
+    
+    .firBox{
+    
+        background-color: #FDA7DF;
+            width: 79vw;
+            height: 8vh; 
+            float: left;  
+            padding: 10px; 
+           display:flex; 
+           justify-content:center;
+            align-items:center;
+              
+    }
+    
+    
+    .secbox{
+    background-color:white;
+    height: auto;
+    width: 79vw;
+    float: right;
+    padding: 10px; 
+    
+    }
+    
+    
+        
+    .sbox{
+    width: 8vw;
+    height: 10vh;
+    background-color: white;
+    padding: 12px;
+    
+    }
+    
+    
+    .menuBox{
+    
+       background-color:white;
+        width: 15vw;
+        height: 100vh;
+        float: left;
+       justify-content: center;
+           
+      
+    }
+    
+    .twoBox{
+        background-color: silver;
+        width: 82vw;
+        height: 10vh;
+        padding: 10px;
+        float: left;
+    
+    }
+    .zbox{
+        width: 47.5vw;
+        height: 25vh;
+        background-color: white;
+        padding: 10px;
+        
+        }
+    
+    
+        .xzzbox{
+    
+            width: 25vw;
+            height: 72vh;
+            background-color: white;
+            padding: 10px;
+    
+    
+    
+        }
+    
+        .sideBox
+        {  height:auto;
+            width: 30vw;
+            background-color: silver;
+            float: left;
+            padding: 10px;
+    
+    
+        }
+    
